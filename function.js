@@ -1,3 +1,7 @@
+Office.initialize = function () {
+    // Fonction exécutée lorsque l'add-in est chargé
+};
+
 function SendToSpecificEmail() {
     // Make sure the script is running in Outlook on the web
     if (Office.context.mailbox.diagnostics.hostName !== 'OutlookIOS' && Office.context.mailbox.diagnostics.platform !== 'OutlookWebApp') {
