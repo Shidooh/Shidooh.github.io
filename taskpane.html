@@ -8,34 +8,39 @@
 
     <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-
-        function SendAndDeleteMessage() {
-            // Récupère le message sélectionné
-            var item = Office.context.mailbox.item;
-
-            // Envoie le message à l'adresse e-mail spécifiée
-            item.forwardAsync("mathis.merme@gmail.com", {
-                asyncContext: { message: item }
-            }, function (asyncResult) {
-                if (asyncResult.status == "failed") {
-                    console.error("Error sending message: " + asyncResult.error.message);
-                    return;
-                }
-
-                // Supprime le message une fois l'envoi terminé
-                asyncResult.value.deleteAsync(function (asyncResult) {
-                    if (asyncResult.status == "failed") {
-                        console.error("Error deleting message: " + asyncResult.error.message);
-                    }
-                });
-            });
-        }
-    </script>
+   
 </head>
 
   <body>
-      <p>test.</p>
+      <form>
+          <label for="emailAddress">Email Address:</label><br>
+          <input type="text" id="emailAddress" name="emailAddress"><br>
+          <button type="button" onclick="sendAndDelete()">Send and Delete</button>
+      </form>
+      <script type="text/javascript">
+
+          function SendAndDeleteMessage() {
+              // Récupère le message sélectionné
+              var item = Office.context.mailbox.item;
+
+              // Envoie le message à l'adresse e-mail spécifiée
+              item.forwardAsync("mathis.merme@gmail.com", {
+                  asyncContext: { message: item }
+              }, function (asyncResult) {
+                  if (asyncResult.status == "failed") {
+                      console.error("Error sending message: " + asyncResult.error.message);
+                      return;
+                  }
+
+                  // Supprime le message une fois l'envoi terminé
+                  asyncResult.value.deleteAsync(function (asyncResult) {
+                      if (asyncResult.status == "failed") {
+                          console.error("Error deleting message: " + asyncResult.error.message);
+                      }
+                  });
+              });
+          }
+      </script>
   </body>
 
 </html>
