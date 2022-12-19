@@ -59,7 +59,7 @@
 							<Group id="customGroup">
 								<Label resid="buttonLabel"/>
 								<Control xsi:type="Button" id="msgReadOpenPaneButton">
-									<Label resid="buttonDescription"/>
+									<Label resid="buttonLabel"/>
 									<Supertip>
 										<Title resid="test"/>
 										<Description resid="testtext"/>
