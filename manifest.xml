@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!-- 
   Références : 
   - Customizing the Office Ribbon (https://docs.microsoft.com/en-us/office/dev/add-ins/develop/customizing-the-office-ribbon)
   - Office Add-in manifest schema (https://docs.microsoft.com/en-us/office/dev/add-ins/reference/manifest/manifest-schema)
  -->
 <!--  Déclaration du namespace de l'add-in  -->
+
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
+	
 	<!--  Informations sur l'add-in  -->
 	<Id>{e4a85eca-7f1c-11ed-a1eb-0242ac120002}</Id>
 	<Version>1.0.0.0</Version>
@@ -13,8 +16,10 @@
 	<DefaultLocale>fr-FR</DefaultLocale>
 	<DisplayName DefaultValue="Bouton Transfert Phishing"/>
 	<Description DefaultValue="Un add-in Outlook qui permet d'envoyer et de supprimer rapidement les courriels sélectionnés."/>
+	
 	<!--  Icône de l'add-in  -->
 	<IconUrl DefaultValue="https://Shidooh.github.io/assets/icon-64.png"/>
+	
 	<!--  Informations de déploiement  -->
 	<Hosts>
 		<Host Name="Mailbox"/>
@@ -24,6 +29,7 @@
 			<Set Name="Mailbox" MinVersion="1.1"/>
 		</Sets>
 	</Requirements>
+	
 	<!--  Définition du ruban d'accueil  -->
 	<FormSettings>
 		<Form xsi:type="ItemRead">
@@ -33,7 +39,9 @@
 			</DesktopSettings>
 		</Form>
 	</FormSettings>
+	
 	<Permissions>ReadWriteItem</Permissions>
+	
 	<!--  Définition du ruban d'accueil  -->
 	<Rule xsi:type="RuleCollection" Mode="Or">
 		<Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
@@ -44,13 +52,14 @@
 			<Host xsi:type="MailHost">
 				<!--  Définition de l'onglet  -->
 				<DesktopFormFactor>
-					<FunctionFile resid="Functionfile"/>
+					
+					<FunctionFile resid="FunctionfileURL"/>
 					<ExtensionPoint xsi:type="MessageReadCommandSurface">
 						<OfficeTab id="TabDefault">
 							<Group id="customGroup">
 								<Label resid="buttonLabel"/>
 								<Control xsi:type="Button" id="msgReadOpenPaneButton">
-									<Label resid="buttonLabel"/>
+									<Label resid="buttonDescription"/>
 									<Supertip>
 										<Title resid="test"/>
 										<Description resid="testtext"/>
@@ -67,9 +76,11 @@
 							</Group>
 						</OfficeTab>
 					</ExtensionPoint>
+				
 				</DesktopFormFactor>
 			</Host>
 		</Hosts>
+		
 		<!--  Définition des ressources de chaîne  -->
 		<Resources>
 			<bt:Images>
@@ -78,7 +89,7 @@
 				<bt:Image id="icon80" DefaultValue="https://Shidooh.github.io/assets/icon-80.png"/>
 			</bt:Images>
 			<bt:Urls>
-				<bt:Url id="Functionfile" DefaultValue="https://Shidooh.github.io/taskpane.html"/>
+				<bt:Url id="FunctionfileURL" DefaultValue="https://Shidooh.github.io/taskpane.html"/>
 			</bt:Urls>
 			<bt:ShortStrings>
 				<bt:String id="buttonLabel" DefaultValue="Envoyer et supprimer"/>
@@ -89,5 +100,6 @@
 				<bt:String id="testtext" DefaultValue="Envoie le courrier électronique sélectionné à une adresse spécifique et le supprime ensuite."/>
 			</bt:LongStrings>
 		</Resources>
+		
 	</VersionOverrides>
 </OfficeApp>
