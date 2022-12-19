@@ -6,16 +6,31 @@
     <script type="text/javascript">
 
       function sendToSpecificEmail() {
-                // Obtenir le courriel sélectionné
-        var selectedEmail = Office.context.mailbox.item
-                // Définir l'adresse email à laquelle envoyer le courriel
-        var targetEmailAddress = "mathis.merme@gmail.com";
-                // Envoyer le courriel à l'adresse spécifique
-        selectedEmail.forward(targetEmailAddress);
-                // Supprimer le courriel de la boîte de réception
-        selectedEmail.delete();
+        const selObject = Explorer.Selection[1];
+        if (selObject instanceof Outlook.MailItem) {
+          // Selected item is indeed an e-mail message, proceed with submission
+
+          console.log("PIEButton: Selected object IS a mail item");
+          const phish_mail = Explorer.Selection[1] instanceof Outlook.MailItem;
+          const mail = Application.CreateItem(Outlook.OlItemType.olMailItem) instanceof Outlook.MailItem;
+          const phish_date = new Date();
+          mail.Subject = `Nouveau mail de Phishing du ${phish_date.toString()}`;
+          const currentUser = Application.Session.CurrentUser.AddressEntry;
+
+          // Target e-mail address (which will receive the phishing report) is defined in the associated config file variable, "ReportTargetEmail"
+          // You can also replace all instances of "Properties.Settings.Default.ReportTargetEmail" with a hard-coded string literal (or string variable name) if you'd prefer to not use the config file.
+          // Example: mail.Recipients.Add("phishing.report@mydomain.com");
+
+          mail.Recipients.add(Properties.Settings.Default.ReportTargetEmail);
+
+          mail.Recipients.resolveAll();
+          mail.Attachments.add(phish_mail, Outlook.OlAttachmentType.olByValue, null, null);
+          mail.send();
+          phish_mail.delete();
       }
+    }
     </script>
+
   </head>
   <body>
       <p>Testttttttt.</p>
