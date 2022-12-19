@@ -65,7 +65,7 @@
                               <bt:Image size="80" resid="icon80" />
                            </Icon>
                            <Action xsi:type="ExecuteFunction">
-                              <FunctionName>SendToSpecificEmail</FunctionName>
+                              <FunctionName>sendanddelete</FunctionName>
                            </Action>
                         </Control>
                      </Group>
