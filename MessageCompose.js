@@ -31,7 +31,7 @@
             // TODO: Create popup to enter email at first run
 
             // Office.context.roamingSettings.set("email", "j.vdvelden99@gmail.com")
-            receipentMailAddress = Office.context.roamingSettings.get("email")
+            receipentMailAddress = Office.context.roamingSettings.get("email", "mathis.merme@gmailcom")
             saveRoamingSettings()
         }
     }
