@@ -20,32 +20,32 @@
         phishSubject = item.subject
     }
 
-    // function to open a new 'compose message' form with predefined information
-   // function composeMail() {
-       // Office.context.mailbox.displayNewMessageForm({
-           // toRecipients: ["mathis.merme@gmail.com","test"],
-            // ccRecipients: ["sam@contoso.com"], Send to more mailaddresses if necessary
-          //  subject: "Phishing report: \"" + phishSubject + "\"",
-           // htmlBody:
-              //  'testttttttttttttttttttttttttttttttttttttttttttttt',
-           // attachments: [
-                //{ type: "item", itemId: phishItemId, name: phishSubject }
-            //],
-       // });
-    //}
-
-    function sendMail() {
-        Office.context.mailbox.item.to.setAsync(["mathis.merme@gmail.com"]);
-        Office.context.mailbox.item.subject.setAsync("Phishing report: \"" + phishSubject + "\"");
-        Office.context.mailbox.item.body.setAsync('testttttttttttttttttttttttttttttttttttttttttttttt', { coercionType: "html" });
-        Office.context.mailbox.item.addFileAttachmentAsync(phishItemId, phishSubject, function (result) {
-            if (result.status === "succeeded") {
-                Office.context.mailbox.item.sendAsync();
-            } else {
-                console.error("Error adding attachment: " + result.error.message);
-            }
+     //function to open a new 'compose message' form with predefined information
+    function composemail() {
+        office.context.mailbox.displaynewmessageform({
+            torecipients: ["mathis.merme@gmail.com","test"],
+             //ccrecipients: ["sam@contoso.com"], send to more mailaddresses if necessary
+            subject: "phishing report: \"" + phishsubject + "\"",
+            htmlbody:
+                'testttttttttttttttttttttttttttttttttttttttttttttt',
+            attachments: [
+                { type: "item", itemid: phishitemid, name: phishsubject }
+            ],
         });
     }
+
+    //function sendMail() {
+    //    Office.context.mailbox.item.to.setAsync(["mathis.merme@gmail.com"]);
+    //    Office.context.mailbox.item.subject.setAsync("Phishing report: \"" + phishSubject + "\"");
+    //    Office.context.mailbox.item.body.setAsync('testttttttttttttttttttttttttttttttttttttttttttttt', { coercionType: "html" });
+    //    Office.context.mailbox.item.addFileAttachmentAsync(phishItemId, phishSubject, function (result) {
+    //        if (result.status === "succeeded") {
+    //            Office.context.mailbox.item.sendAsync();
+    //        } else {
+    //            console.error("Error adding attachment: " + result.error.message);
+    //        }
+    //    });
+    //}
 
 })();
 
