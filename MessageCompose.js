@@ -6,7 +6,7 @@
         // Office is ready
         $(document).ready(function () {
             getPhishingItem(Office.context.mailbox.item);
-            composeMail();
+            sendMail();
         });
     });
 
