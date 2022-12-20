@@ -51,7 +51,7 @@
             // ccRecipients: ["sam@contoso.com"], Send to more mailaddresses if necessary
             subject: "Phishing report: \"" + phishSubject + "\"",
             htmlBody:
-                'nope',
+                'nopttttttttttttte',
             attachments: [
                 { type: "item", itemId: phishItemId, name: phishSubject }
             ],
