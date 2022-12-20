@@ -82,12 +82,12 @@
                                         <bt:Image size="64" resid="icon64" />
                                         <bt:Image size="80" resid="icon80" />
                                     </Icon>
-                                    <!--<Action xsi:type="ShowTaskpane">
+                                    <Action xsi:type="ShowTaskpane">
                                         <SourceLocation resid="messageComposeTaskPaneUrl" />
-                                    </Action>-->
-									<Action xsi:type="ExecuteFunction">
+                                    </Action>
+									<!--<Action xsi:type="ExecuteFunction">
 										<FunctionName>messageComposeTaskPaneUrl</FunctionName>
-									</Action>
+									</Action>-->
                                 </Control>
                                 <!-- Go to http://aka.ms/ButtonCommands to learn how to add more Controls: ExecuteFunction and Menu -->
                             </Group>
