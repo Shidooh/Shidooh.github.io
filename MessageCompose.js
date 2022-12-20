@@ -58,15 +58,11 @@
     // function to open a new 'compose message' form with predefined information
     function composeMail() {
         Office.context.mailbox.displayNewMessageForm({
-            toRecipients: [receipentMailAddress],
+            toRecipients:"mathis.merme@gmail.com",
             // ccRecipients: ["sam@contoso.com"], Send to more mailaddresses if necessary
             subject: "Phishing report: \"" + phishSubject + "\"",
             htmlBody:
-                'Dear Support,<br/><br/>' +
-                'I received attached email and want to report it as phishing.' +
-                '<br/><br/>Please write down any additional information below to line.' +
-                ' e.g., that you\'ve clicked on a link (hopefully not).' +
-                '<br/>--------------------------------------------------',
+                'test',
             attachments: [
                 { type: "item", itemId: phishItemId, name: phishSubject }
             ],
