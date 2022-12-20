@@ -90,9 +90,7 @@
                             </Group>
                         </OfficeTab>
                     </ExtensionPoint>
-
 					</DesktopFormFactor>
-
             </Host>
         </Hosts>
 
