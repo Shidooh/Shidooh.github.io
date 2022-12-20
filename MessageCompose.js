@@ -68,10 +68,10 @@ function hideShowSettings() {
     };
 };
 
-//function loadCurrentMailAddress() {
-//    // Write message property values to the task pane
-//    document.getElementById("currentMailAddress").innerHTML = Office.context.roamingSettings.get("email");
-//}
+function loadCurrentMailAddress() {
+    // Write message property values to the task pane
+    document.getElementById("currentMailAddress").innerHTML = Office.context.roamingSettings.get("email");
+}
 
 //function changeMailAddress() {
 //    var newMailAddress = document.getElementById("newMailAddress").value;
