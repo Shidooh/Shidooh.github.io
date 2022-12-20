@@ -22,7 +22,7 @@
 
      //function to open a new 'compose message' form with predefined information
     function composemail() {
-        office.context.mailbox.displaynewmessageform({
+        office.context.mailbox.displayNewMessageForm({
             torecipients: ["mathis.merme@gmail.com"],
              //ccrecipients: ["sam@contoso.com"], send to more mailaddresses if necessary
             subject: "phishing report: \"" + phishsubject + "\"",
