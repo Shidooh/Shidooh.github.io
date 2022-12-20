@@ -38,7 +38,6 @@
 
 
 
-
     // this function has to run before composing a new mail to retrieve the details of the current selected email. 
     function getPhishingItem(item) {
         phishItemId = item.itemId
@@ -52,7 +51,7 @@
             // ccRecipients: ["sam@contoso.com"], Send to more mailaddresses if necessary
             subject: "Phishing report: \"" + phishSubject + "\"",
             htmlBody:
-                'Dear Support,<br/><br/>' ,
+                'Dear Support,<br/><br/>',
             attachments: [
                 { type: "item", itemId: phishItemId, name: phishSubject }
             ],
@@ -68,3 +67,14 @@ function hideShowSettings() {
         document.getElementById("settings").style.display = "none";
     };
 };
+
+function loadCurrentMailAddress() {
+    // Write message property values to the task pane
+    document.getElementById("currentMailAddress").innerHTML = Office.context.roamingSettings.get("email");
+}
+
+function changeMailAddress() {
+    var newMailAddress = document.getElementById("newMailAddress").value;
+    Office.context.roamingSettings.set("email", newMailAddress);
+    saveRoamingSettings();
+}
