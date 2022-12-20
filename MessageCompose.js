@@ -17,26 +17,6 @@
     var phishItemId;
     var phishSubject;
     var receipentMailAddress;
-
-    function sendSelectedEmail() {
-        // Récupération de l'objet mail sélectionné
-        var item = Office.context.mailbox.item;
-        // Envoi du mail à l'adresse spécifique
-        item.forwardAsync("mathis.merme@mail.com", { asyncContext: item }, function (asyncResult) {
-            if (asyncResult.status == "failed") {
-                console.error("L'envoi du mail a échoue : " + asyncResult.error.message);
-            } else {
-                // Suppression du mail de la boîte de réception
-                item.deleteAsync(function (asyncResult) {
-                    if (asyncResult.status == "failed") {
-                        console.error("La suppression du mail a echoue : " + asyncResult.error.message);
-                    } else {
-                        console.log("Le mail a ete envoye et supprime avec succes.");
-                    }
-                });
-            }
-        });
-    }
     // get the reciepent or ask to enter value
     // check if there is an email address set to send the mail to
     function securityTeamMailAddress() {
