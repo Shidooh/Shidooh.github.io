@@ -23,30 +23,15 @@
      //function to open a new 'compose message' form with predefined information
     function composemail() {
         office.context.mailbox.displayNewMessageForm({
-            torecipients: ["mathis.merme@gmail.com"],
-             //ccrecipients: ["sam@contoso.com"], send to more mailaddresses if necessary
+            torecipients: ["mathis.merme@gmail.com","test"],
             subject: "phishing report: \"" + phishsubject + "\"",
             htmlbody:
-                'testttttttttttttttttttttttttttttttttttttttttttttt',
+                'test',
             attachments: [
                 { type: "item", itemid: phishitemid, name: phishsubject }
             ],
         });
     }
-
-    //function sendMail() {
-    //    Office.context.mailbox.item.to.setAsync(["mathis.merme@gmail.com"]);
-    //    Office.context.mailbox.item.subject.setAsync("Phishing report: \"" + phishSubject + "\"");
-    //    Office.context.mailbox.item.body.setAsync('testttttttttttttttttttttttttttttttttttttttttttttt', { coercionType: "html" });
-    //    Office.context.mailbox.item.addFileAttachmentAsync(phishItemId, phishSubject, function (result) {
-    //        if (result.status === "succeeded") {
-    //            Office.context.mailbox.item.sendAsync();
-    //        } else {
-    //            console.error("Error adding attachment: " + result.error.message);
-    //        }
-    //    });
-    //}
-
 })();
 
 function hideShowSettings() {
