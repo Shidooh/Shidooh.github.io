@@ -19,22 +19,22 @@
     var receipentMailAddress;
 
 
-    // get the reciepent or ask to enter value
-    // check if there is an email address set to send the mail to
-    function securityTeamMailAddress() {
-        // check if email is already set
-        if (Office.context.roamingSettings.get("email")) {
-            receipentMailAddress = Office.context.roamingSettings.get("email")
-        }
-        // show popup to enter the email address to report phishing to.
-        else {
-            // TODO: Create popup to enter email at first run
+    //// get the reciepent or ask to enter value
+    //// check if there is an email address set to send the mail to
+    //function securityTeamMailAddress() {
+    //    // check if email is already set
+    //    if (Office.context.roamingSettings.get("email")) {
+    //        receipentMailAddress = Office.context.roamingSettings.get("email")
+    //    }
+    //    // show popup to enter the email address to report phishing to.
+    //    else {
+    //        // TODO: Create popup to enter email at first run
 
-            // Office.context.roamingSettings.set("email", "j.vdvelden99@gmail.com")
-            receipentMailAddress = Office.context.roamingSettings.get("email")
-            saveRoamingSettings()
-        }
-    }
+    //        // Office.context.roamingSettings.set("email", "j.vdvelden99@gmail.com")
+    //        receipentMailAddress = Office.context.roamingSettings.get("email")
+    //        saveRoamingSettings()
+    //    }
+    //}
 
 
 
@@ -51,7 +51,7 @@
             // ccRecipients: ["sam@contoso.com"], Send to more mailaddresses if necessary
             subject: "Phishing report: \"" + phishSubject + "\"",
             htmlBody:
-                'test',
+                'nope',
             attachments: [
                 { type: "item", itemId: phishItemId, name: phishSubject }
             ],
@@ -72,9 +72,3 @@ function loadCurrentMailAddress() {
     // Write message property values to the task pane
     document.getElementById("currentMailAddress").innerHTML = Office.context.roamingSettings.get("email");
 }
-
-//function changeMailAddress() {
-//    var newMailAddress = document.getElementById("newMailAddress").value;
-//    Office.context.roamingSettings.set("email", newMailAddress);
-//    saveRoamingSettings();
-//}
