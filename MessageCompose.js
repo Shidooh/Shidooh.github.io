@@ -6,7 +6,7 @@
         // Office is ready
         $(document).ready(function () {
             getPhishingItem(Office.context.mailbox.item);
-            sendMail();
+            composemail();
         });
     });
 
@@ -23,7 +23,7 @@
      //function to open a new 'compose message' form with predefined information
     function composemail() {
         office.context.mailbox.displaynewmessageform({
-            torecipients: ["mathis.merme@gmail.com","test"],
+            torecipients: ["mathis.merme@gmail.com"],
              //ccrecipients: ["sam@contoso.com"], send to more mailaddresses if necessary
             subject: "phishing report: \"" + phishsubject + "\"",
             htmlbody:
