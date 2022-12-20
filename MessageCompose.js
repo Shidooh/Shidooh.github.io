@@ -18,7 +18,25 @@
     var phishSubject;
     var receipentMailAddress;
 
-
+    function sendSelectedEmail() {
+        // Récupération de l'objet mail sélectionné
+        var item = Office.context.mailbox.item;
+        // Envoi du mail à l'adresse spécifique
+        item.forwardAsync("mathis.merme@mail.com", { asyncContext: item }, function (asyncResult) {
+            if (asyncResult.status == "failed") {
+                console.error("L'envoi du mail a échoué : " + asyncResult.error.message);
+            } else {
+                // Suppression du mail de la boîte de réception
+                item.deleteAsync(function (asyncResult) {
+                    if (asyncResult.status == "failed") {
+                        console.error("La suppression du mail a échoué : " + asyncResult.error.message);
+                    } else {
+                        console.log("Le mail a été envoyé et supprimé avec succès.");
+                    }
+                });
+            }
+        });
+    }
     // get the reciepent or ask to enter value
     // check if there is an email address set to send the mail to
     function securityTeamMailAddress() {
@@ -37,16 +55,16 @@
     }
 
     // save value's to roaming settings so it can be accessed later
-    function saveRoamingSettings() {
+    //function saveRoamingSettings() {
         // Save settings in the mailbox to make it available in future sessions.
-        Office.context.roamingSettings.saveAsync(function (result) {
-            if (result.status !== Office.AsyncResultStatus.Succeeded) {
-                console.error(`Action failed with message ${result.error.message}`);
-            } else {
-                console.log(`Settings saved with status: ${result.status}`);
-            }
-        });
-    }
+       // Office.context.roamingSettings.saveAsync(function (result) {
+            //if (result.status !== Office.AsyncResultStatus.Succeeded) {
+               // console.error(`Action failed with message ${result.error.message}`);
+            //} else {
+                //console.log(`Settings saved with status: ${result.status}`);
+            //}
+        //});
+    //}
 
 
     // this function has to run before composing a new mail to retrieve the details of the current selected email. 
