@@ -23,20 +23,20 @@
     
     // get the reciepent or ask to enter value
     // check if there is an email address set to send the mail to
-    //function securityTeamMailAddress() {
-        // check if email is already set
-        //if (Office.context.roamingSettings.get("email")) {
-            //receipentMailAddress = Office.context.roamingSettings.get("email")
-        //}
+    function securityTeamMailAddress() {
+        //check if email is already set
+        if (Office.context.roamingSettings.get("email")) {
+            receipentMailAddress = Office.context.roamingSettings.get("email")
+        }
         // show popup to enter the email address to report phishing to.
-        //else {
+        else {
             // TODO: Create popup to enter email at first run
 
-            // Office.context.roamingSettings.set("email", "j.vdvelden99@gmail.com")
-            //receipentMailAddress = Office.context.roamingSettings.get("email")
-            //saveRoamingSettings()
-        //}
-    //}
+           // Office.context.roamingSettings.set("email", "j.vdvelden99@gmail.com")
+            receipentMailAddress = Office.context.roamingSettings.get("email")
+            saveRoamingSettings()
+        }
+    }
 
     // save value's to roaming settings so it can be accessed later
     //function saveRoamingSettings() {
