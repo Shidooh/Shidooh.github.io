@@ -37,16 +37,16 @@
     }
 
     // save value's to roaming settings so it can be accessed later
-    function saveRoamingSettings() {
+    //function saveRoamingSettings() {
         // Save settings in the mailbox to make it available in future sessions.
-        Office.context.roamingSettings.saveAsync(function (result) {
-            if (result.status !== Office.AsyncResultStatus.Succeeded) {
-                console.error(`Action failed with message ${result.error.message}`);
-            } else {
-                console.log(`Settings saved with status: ${result.status}`);
-            }
-        });
-    }
+        //Office.context.roamingSettings.saveAsync(function (result) {
+            //if (result.status !== Office.AsyncResultStatus.Succeeded) {
+                //console.error(`Action failed with message ${result.error.message}`);
+            //} else {
+                //console.log(`Settings saved with status: ${result.status}`);
+            //}
+        //});
+    //}
 
 
     // this function has to run before composing a new mail to retrieve the details of the current selected email. 
@@ -62,11 +62,7 @@
             // ccRecipients: ["sam@contoso.com"], Send to more mailaddresses if necessary
             subject: "Phishing report: \"" + phishSubject + "\"",
             htmlBody:
-                'Dear Support,<br/><br/>' +
-                'I received attached email and want to report it as phishing.' +
-                '<br/><br/>Please write down any additional information below to line.' +
-                ' e.g., that you\'ve clicked on a link (hopefully not).' +
-                '<br/>--------------------------------------------------',
+                'test',
             attachments: [
                 { type: "item", itemId: phishItemId, name: phishSubject }
             ],
