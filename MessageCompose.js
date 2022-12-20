@@ -16,9 +16,7 @@
     // defining global variables to pass them to the composeMail function
     var phishItemId;
     var phishSubject;
-
-
-
+    var receipentMailAddress;
 
     // this function has to run before composing a new mail to retrieve the details of the current selected email. 
     function getPhishingItem(item) {
@@ -41,3 +39,34 @@
     }
 
 })();
+
+function hideShowSettings() {
+    if (document.getElementById("settings").style.display === "none") {
+        document.getElementById("settings").style.display = "block";
+    } else {
+        document.getElementById("settings").style.display = "none";
+    };
+};
+
+function loadCurrentMailAddress() {
+    // Write message property values to the task pane
+    document.getElementById("currentMailAddress").innerHTML = Office.context.roamingSettings.get("email");
+}
+
+function changeMailAddress() {
+    var newMailAddress = document.getElementById("newMailAddress").value;
+    Office.context.roamingSettings.set("email", newMailAddress);
+    saveRoamingSettings();
+}
+
+function saveRoamingSettings() {
+    // Save settings in the mailbox to make it available in future sessions.
+    Office.context.roamingSettings.saveAsync(function (result) {
+        if (result.status !== Office.AsyncResultStatus.Succeeded) {
+            console.error(`Action failed with message ${result.error.message}`);
+        } else {
+            console.log(`Settings saved with status: ${result.status}`);
+            loadCurrentMailAddress()
+        }
+    });
+}
