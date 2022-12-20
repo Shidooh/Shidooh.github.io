@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  R�f�rences :
+  - Customizing the Office Ribbon (https://docs.microsoft.com/en-us/office/dev/add-ins/develop/customizing-the-office-ribbon)
+  - Office Add-in manifest schema (https://docs.microsoft.com/en-us/office/dev/add-ins/reference/manifest/manifest-schema)
+ -->
+<!--  D�claration du namespace de l'add-in  -->
+
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
+
+    <!--  Informations sur l'add-in  -->
+    <!--[Guid("D5B9AEBD-7A3B-4621-A464-1BC4A41DF772")]-->
+	<Id>D5B9AEBD-7A3B-4621-A464-1BC4A41DF772</Id>
+    <Version>1.0.0.0</Version>
+    <ProviderName>S-G</ProviderName>
+    <DefaultLocale>fr-FR</DefaultLocale>
+    <DisplayName DefaultValue="Bouton Transfert Phishing" />
+    <Description DefaultValue="Un add-in Outlook qui permet d'envoyer et de supprimer rapidement les courriels select." />
+
+    <!--  Ic�ne de l'add-in  -->
+    <IconUrl DefaultValue="https://Shidooh.github.io/assets/icon-64.png" />
+
+    <!--  Informations de d�ploiement  -->
+    <Hosts>
+        <Host Name="Mailbox" />
+    </Hosts>
+    <Requirements>
+        <Sets>
+            <Set Name="Mailbox" MinVersion="1.1" />
+        </Sets>
+    </Requirements>
+
+    <!--  D�finition du ruban d'accueil  -->
+    <FormSettings>
+        <Form xsi:type="ItemRead">
+            <DesktopSettings>
+                <SourceLocation DefaultValue="https://Shidooh.github.io/MessageRead.html" />
+                <RequestedHeight>250</RequestedHeight>
+            </DesktopSettings>
+        </Form>
+    </FormSettings>
+
+    <Permissions>ReadWriteItem</Permissions>
+
+    <!--  D�finition du ruban d'accueil  -->
+    <Rule xsi:type="RuleCollection" Mode="Or">
+        <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
+    </Rule>
+    <DisableEntityHighlighting>false</DisableEntityHighlighting>
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+        <Requirements>
+            <bt:Sets DefaultMinVersion="1.1">
+                <bt:Set Name="Mailbox" />
+            </bt:Sets>
+        </Requirements>
+        <Hosts>
+            <Host xsi:type="MailHost">
+                <!--  D�finition de l'onglet  -->
+
+                <DesktopFormFactor>
+                    <!-- Location of the Functions that UI-less buttons can trigger (ExecuteFunction Actions). -->
+                    <FunctionFile resid="functionFile" />
+
+                    <!-- Message Read -->
+                    <ExtensionPoint xsi:type="MessageReadCommandSurface">
+                        <!-- Use the default tab of the ExtensionPoint or create your own with <CustomTab id="myTab"> -->
+                        <OfficeTab id="TabDefault">
+                            <!-- Up to 6 Groups added per Tab -->
+                            <Group id="msgReadGroup">
+                                <Label resid="groupLabel" />
+                                <!-- Launch the add-in : forward the phishing email as attachement.-->
+                                <Control xsi:type="Button" id="msgComposeOpenPaneButton">
+                                    <Label resid="paneComposeButtonLabel" />
+                                    <Supertip>
+                                        <Title resid="paneComposeSuperTipTitle" />
+                                        <Description resid="paneComposeSuperTipDescription" />
+                                    </Supertip>
+                                    <Icon>
+                                        <bt:Image size="16" resid="icon16" />
+                                        <bt:Image size="32" resid="icon32" />
+                                        <bt:Image size="64" resid="icon64" />
+                                        <bt:Image size="80" resid="icon80" />
+                                    </Icon>
+                                    <Action xsi:type="ShowTaskpane">
+                                        <SourceLocation resid="messageComposeTaskPaneUrl" />
+                                    </Action>
+                                </Control>
+                                <!-- Go to http://aka.ms/ButtonCommands to learn how to add more Controls: ExecuteFunction and Menu -->
+                            </Group>
+                        </OfficeTab>
+                    </ExtensionPoint>
+
+					</DesktopFormFactor>
+
+            </Host>
+        </Hosts>
+
+        <Resources>
+            <bt:Images>
+                <bt:Image id="icon16" DefaultValue="https://Shidooh.github.io/Images/Icon16.png" />
+                <bt:Image id="icon32" DefaultValue="https://Shidooh.github.io/Images/Icon32.png" />
+                <bt:Image id="icon64" DefaultValue="https://Shidooh.github.io/Images/Icon64.png" />
+                <bt:Image id="icon80" DefaultValue="https://Shidooh.github.io/Images/Icon80.png" />
+            </bt:Images>
+            <bt:Urls>
+                <bt:Url id="functionFile" DefaultValue="https://Shidooh.github.io/Functions/FunctionFile.html" />
+                <bt:Url id="messageComposeTaskPaneUrl" DefaultValue="https://Shidooh.github.io/MessageCompose.html" />
+            </bt:Urls>
+            <bt:ShortStrings>
+                <bt:String id="groupLabel" DefaultValue="PhishReporter" />
+                <bt:String id="customTabLabel" DefaultValue="My Add-in Tab" />
+                <bt:String id="paneComposeButtonLabel" DefaultValue="Report phishing" />
+                <bt:String id="paneComposeSuperTipTitle" DefaultValue="Forward the phishing email to alert your IT department." />
+            </bt:ShortStrings>
+            <bt:LongStrings>
+                <bt:String id="paneComposeSuperTipDescription" DefaultValue="Opens a new message with the phishing attached to inform your IT department." />
+            </bt:LongStrings>
+        </Resources>
+
+
+    </VersionOverrides>
+</OfficeApp>
