@@ -5,9 +5,6 @@
     Office.onReady(function () {
         // Office is ready
         $(document).ready(function () {
-            // The document is ready
-            securityTeamMailAddress();
-            loadCurrentMailAddress()
             getPhishingItem(Office.context.mailbox.item);
             composeMail();
         });
