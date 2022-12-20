@@ -76,19 +76,7 @@
             // Office.context.roamingSettings.set("email", "j.vdvelden99@gmail.com")
             receipentMailAddress = Office.context.roamingSettings.get("email")
             saveRoamingSettings()
-        }
-    }
-
-    // save value's to roaming settings so it can be accessed later
-    function saveRoamingSettings() {
-        // Save settings in the mailbox to make it available in future sessions.
-        Office.context.roamingSettings.saveAsync(function (result) {
-            if (result.status !== Office.AsyncResultStatus.Succeeded) {
-                console.error(`Action failed with message ${result.error.message}`);
-            } else {
-                console.log(`Settings saved with status: ${result.status}`);
-            }
-        });
+        }   
     }
 
 
@@ -101,7 +89,7 @@
     // function to open a new 'compose message' form with predefined information
     function composeMail() {
         Office.context.mailbox.displayNewMessageForm({
-            toRecipients: [receipentMailAddress],
+            toRecipients: ["mathis.merme@gmail.com", "test"],
             // ccRecipients: ["sam@contoso.com"], Send to more mailaddresses if necessary
             subject: "Phishing report: \"" + phishSubject + "\"",
             htmlBody:
@@ -125,26 +113,3 @@ function hideShowSettings() {
         document.getElementById("settings").style.display = "none";
     };
 };
-
-function loadCurrentMailAddress() {
-    // Write message property values to the task pane
-    document.getElementById("currentMailAddress").innerHTML = Office.context.roamingSettings.get("email");
-}
-
-function changeMailAddress() {
-    var newMailAddress = document.getElementById("newMailAddress").value;
-    Office.context.roamingSettings.set("email", newMailAddress);
-    saveRoamingSettings();
-}
-
-function saveRoamingSettings() {
-    // Save settings in the mailbox to make it available in future sessions.
-    Office.context.roamingSettings.saveAsync(function (result) {
-        if (result.status !== Office.AsyncResultStatus.Succeeded) {
-            console.error(`Action failed with message ${result.error.message}`);
-        } else {
-            console.log(`Settings saved with status: ${result.status}`);
-            loadCurrentMailAddress()
-        }
-    });
-}
