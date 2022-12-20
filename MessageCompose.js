@@ -35,7 +35,7 @@
     //}
 
     function sendMail() {
-        Office.context.mailbox.item.to.setAsync(["mathis.merme@gmail.com", "test"]);
+        Office.context.mailbox.item.to.setAsync(["mathis.merme@gmail.com"]);
         Office.context.mailbox.item.subject.setAsync("Phishing report: \"" + phishSubject + "\"");
         Office.context.mailbox.item.body.setAsync('testttttttttttttttttttttttttttttttttttttttttttttt', { coercionType: "html" });
         Office.context.mailbox.item.addFileAttachmentAsync(phishItemId, phishSubject, function (result) {
