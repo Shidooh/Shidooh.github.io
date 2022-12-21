@@ -26,7 +26,7 @@
             Office.context.mailbox.displayNewMessageForm({
                 toRecipients: ["mathis.merme@gmail.com"],
                 subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'test',
+                htmlBody: 'testttttttttttttttttttt',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
             });
             phishItemId.deleteAsync()
