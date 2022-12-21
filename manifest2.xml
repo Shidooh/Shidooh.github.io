@@ -10,8 +10,8 @@
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
 
     <!--  Informations sur l'add-in  -->
-    <!--[Guid("D5B9AEBD-7A3B-4621-A464-1BC4A41DF772")]-->
-	<Id>D5B9AEBD-7A3B-4621-A464-1BC4A41DF772</Id>
+    <!--[Guid("1F4CE1D4-FEED-4CDE-BC95-01F71A5C6FB3")]-->
+	<Id>1F4CE1D4-FEED-4CDE-BC95-01F71A5C6FB3</Id>
     <Version>1.0.0.0</Version>
     <ProviderName>S-G</ProviderName>
     <DefaultLocale>fr-FR</DefaultLocale>
