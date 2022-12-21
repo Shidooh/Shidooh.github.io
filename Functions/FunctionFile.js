@@ -1,17 +1,73 @@
-ï»¿Office.initialize = function () {
-}
+'use strict';
 
-// Helper function to add a status message to the info bar.
-function statusUpdate(icon, text) {
-    Office.context.mailbox.displayNewMessageForm;
-  Office.context.mailbox.item.notificationMessages.replaceAsync("status", {
-    type: "informationalMessage",
-    icon: icon,
-    message: text,
-    persistent: false
-  });
-}
+(function () {
 
-function defaultStatus(event) {
-  statusUpdate("icon16" , "Hello World!");
-}
+    Office.onReady(function () {
+        // Office is ready
+        $(document).ready(function () {
+            getPhishingItem(Office.context.mailbox.item);
+            //composeMail();
+            //run();
+            runAsync();
+        });
+    });
+
+    // defining global variables to pass them to the composeMail function
+    var phishItemId;
+    var phishSubject;
+
+
+    function getPhishingItem(item) {
+        phishItemId = item.itemId
+        phishSubject = item.subject
+    }
+
+//    function composeMail() {
+//        Office.context.mailbox.displayNewMessageForm({
+//            toRecipients: ["mathis.merme@gmail.com"],
+//            subject: "Phishing report: \"" + phishSubject + "\"",
+//            htmlBody: 'TEST',
+//            attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
+//        });
+//    }
+
+//})();
+
+
+function runAsync() {
+        Office.context.mailbox.displayNewMessageFormAsync(
+            {
+                toRecipients: ["mathis.merme@gmail.com"],
+                subject: "Outlook add-ins are cool!",
+                htmlBody: 'Hello <b>World</b>!<br/><img src="cid:image.png"></i>',
+                attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
+            },
+            function (asyncResult) {
+                console.log(JSON.stringify(asyncResult));
+            }
+        );
+    }
+})();
+
+//Office.initialize = function () {
+//}
+
+//function sendSelectedEmail() {
+//    // Récupération de l'objet mail sélectionné
+//    var item = Office.context.mailbox.item;
+//    // Envoi du mail à l'adresse spécifique
+//    item.forwardAsync("mathis.merme@mail.com", { asyncContext: item }, function (asyncResult) {
+//        if (asyncResult.status == "failed") {
+//            console.error("L'envoi du mail a échoué : " + asyncResult.error.message);
+//        } else {
+//            // Suppression du mail de la boîte de réception
+//            item.deleteAsync(function (asyncResult) {
+//                if (asyncResult.status == "failed") {
+//                    console.error("La suppression du mail a échoué : " + asyncResult.error.message);
+//                } else {
+//                    console.log("Le mail a été envoyé et supprimé avec succès.");
+//                }
+//            });
+//        }
+//    });
+//}
