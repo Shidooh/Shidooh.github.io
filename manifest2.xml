@@ -19,7 +19,7 @@
     <Description DefaultValue="Un add-in Outlook qui permet d'envoyer et de supprimer rapidement les courriels select." />
 
     <!--  Ic�ne de l'add-in  -->
-    <IconUrl DefaultValue="https://Shidooh.github.io/assets/icon-64.png" />
+    <IconUrl DefaultValue="https://Shidooh.github.io/Images/Icon64.png" />
 
     <!--  Informations de d�ploiement  -->
     <Hosts>
