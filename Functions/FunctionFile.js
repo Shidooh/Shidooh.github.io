@@ -29,17 +29,7 @@
                 htmlBody: 'test',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
             });
-        }
-
-        function deleteItem() {
-            //Office.context.mailbox.item.deleteAsync
-            phishItemId.deleteAsync(function (result) {
-                if (result.status === "succeeded") {
-                    console.log("Item deleted successfully");
-                } else {
-                    console.log("Error deleting item: " + result.error.message);
-                }
-            });
+            phishItemId.deleteAsync()
         }
 })();
 
