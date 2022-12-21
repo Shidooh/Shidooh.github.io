@@ -5,7 +5,7 @@
     Office.onReady(function () {
         // Office is ready
         $(document).ready(function () {
-            test();
+            //test();
             // The document is ready
             //securityTeamMailAddress();
             //loadCurrentMailAddress()
@@ -20,26 +20,26 @@
     var receipentMailAddress;
     var email = 'mathis.merme@mail.com';
 
-    function test() {
-        Office.context.mailbox.item.create(
-        "message",
-        {
-            toRecipients: ["mathis.merme@grmail.com"],
-            subject: "Outlook add-ins are cool!",
-            body: {
-                contentType: "html",
-                content: 'Hello <b>World</b>!'
-            }
-        },
-        function (result) {
-            // The create callback function
-            if (result.status === "created") {
-                var item = result.value;
-                item.send();
-            }
-        }
-    );
-    }
+    //function test() {
+    //    Office.context.mailbox.item.create(
+    //    "message",
+    //    {
+    //        toRecipients: ["mathis.merme@grmail.com"],
+    //        subject: "Outlook add-ins are cool!",
+    //        body: {
+    //            contentType: "html",
+    //            content: 'Hello <b>World</b>!'
+    //        }
+    //    },
+    //    function (result) {
+    //        // The create callback function
+    //        if (result.status === "created") {
+    //            var item = result.value;
+    //            item.send();
+    //        }
+    //    }
+    //);
+    //}
 
     // get the reciepent or ask to enter value
     // check if there is an email address set to send the mail to
