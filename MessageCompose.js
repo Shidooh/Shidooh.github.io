@@ -17,7 +17,7 @@
     var phishItemId;
     var phishSubject;
     var receipentMailAddress;
-    var email = 'mathis.merme@mail.com';
+    var email = 'mathis.merme@gmail.com';
 
     // get the reciepent or ask to enter value
     // check if there is an email address set to send the mail to
