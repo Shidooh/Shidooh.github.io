@@ -6,8 +6,8 @@
         // Office is ready
         $(document).ready(function () {
             // The document is ready
-            securityTeamMailAddress();
-            loadCurrentMailAddress()
+            //securityTeamMailAddress();
+            //loadCurrentMailAddress()
             getPhishingItem(Office.context.mailbox.item);
             composeMail();
         });
@@ -17,7 +17,7 @@
     var phishItemId;
     var phishSubject;
     var receipentMailAddress;
-    var email = 'mathis.merme@gmail.com';
+    var email = 'mathis.merme@mail.com';
 
     // get the reciepent or ask to enter value
     // check if there is an email address set to send the mail to
@@ -57,7 +57,6 @@
             ],
         });
     }
-
 })();
 
 function hideShowSettings() {
