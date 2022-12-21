@@ -7,6 +7,7 @@
             $(document).ready(function () {
                 getPhishingItem(Office.context.mailbox.item);
                 composeMail();
+                deleteItem();
             });
         });
 
@@ -25,11 +26,22 @@
             Office.context.mailbox.displayNewMessageForm({
                 toRecipients: ["mathis.merme@gmail.com"],
                 subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'TEST',
+                htmlBody: 'TESTtttttttttttttttttttttttttt',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
             });
         }
 
+    function deleteItem() {
+        Office.context.mailbox.item.deleteAsync(function (result) {
+            if (result.status === "succeeded") {
+                console.log("Item deleted successfully");
+            } else {
+                console.log("Error deleting item: " + result.error.message);
+            }
+        });
+    }
+
+    
     })();
 
 
