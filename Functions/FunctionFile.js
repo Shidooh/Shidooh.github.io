@@ -32,7 +32,8 @@
         }
 
     function deleteItem() {
-        Office.context.mailbox.item.deleteAsync(function (result) {
+        //Office.context.mailbox.item.deleteAsync
+        getPhishingItem.deleteAsync(function (result) {
             if (result.status === "succeeded") {
                 console.log("Item deleted successfully");
             } else {
