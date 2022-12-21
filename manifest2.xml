@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!--
-  R�f�rences :
+  References :
   - Customizing the Office Ribbon (https://docs.microsoft.com/en-us/office/dev/add-ins/develop/customizing-the-office-ribbon)
   - Office Add-in manifest schema (https://docs.microsoft.com/en-us/office/dev/add-ins/reference/manifest/manifest-schema)
  -->
-<!--  D�claration du namespace de l'add-in  -->
+<!--  Declaration du namespace de l'add-in  -->
 
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
 
@@ -18,10 +18,10 @@
     <DisplayName DefaultValue="Bouton Transfert Phishing" />
     <Description DefaultValue="Un add-in Outlook qui permet d'envoyer et de supprimer rapidement les courriels select." />
 
-    <!--  Ic�ne de l'add-in  -->
+    <!--  Icone de l'add-in  -->
     <IconUrl DefaultValue="https://Shidooh.github.io/Images/Icon64.png" />
 
-    <!--  Informations de d�ploiement  -->
+    <!--  Informations de deploiement  -->
     <Hosts>
         <Host Name="Mailbox" />
     </Hosts>
@@ -31,7 +31,7 @@
         </Sets>
     </Requirements>
 
-    <!--  D�finition du ruban d'accueil  -->
+    <!--  Definition du ruban d'accueil  -->
     <FormSettings>
         <Form xsi:type="ItemRead">
             <DesktopSettings>
@@ -43,7 +43,7 @@
 
     <Permissions>ReadWriteItem</Permissions>
 
-    <!--  D�finition du ruban d'accueil  -->
+    <!--  Definition du ruban d'accueil  -->
     <Rule xsi:type="RuleCollection" Mode="Or">
         <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
     </Rule>
@@ -56,7 +56,7 @@
         </Requirements>
         <Hosts>
             <Host xsi:type="MailHost">
-                <!--  D�finition de l'onglet  -->
+                <!--  Definition de l'onglet  -->
 
                 <DesktopFormFactor>
                     <!-- Location of the Functions that UI-less buttons can trigger (ExecuteFunction Actions). -->
