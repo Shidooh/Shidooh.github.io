@@ -7,7 +7,7 @@
         $(document).ready(function () {
             getPhishingItem(Office.context.mailbox.item);
             //composeMail();
-            run();
+            //run();
             runAsync();
         });
     });
