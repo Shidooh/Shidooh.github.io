@@ -71,7 +71,7 @@ function getPhishingItem(item) {
         Office.context.mailbox.displayNewMessageForm({
             toRecipients: ["mathis.merme@gmail.com", "test"],
             subject: "Phishing report: \"" + phishSubject + "\"",
-            htmlBody:'nope',
+            htmlBody:'test',
             attachments: [ { type: "item", itemId: phishItemId, name: phishSubject } ],
         });
         displayNewMessageForm.send();
