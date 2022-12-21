@@ -35,14 +35,14 @@ function getPhishingItem(item) {
 
 //})();
 
-function run() {
-    Office.context.mailbox.displayNewMessageForm({
-        toRecipients: ["mathis.merme@gmail.com"],
-        subject: "Outlook add-ins are cool!",
-        htmlBody: 'Hello <b>World</b>!<br/><img src="cid:image.png"></i>',
-        attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-    });
-}
+//function run() {
+//    Office.context.mailbox.displayNewMessageForm({
+//        toRecipients: ["mathis.merme@gmail.com"],
+//        subject: "Outlook add-ins are cool!",
+//        htmlBody: 'Hello <b>World</b>!<br/><img src="cid:image.png"></i>',
+//        attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
+//    });
+//}
 
     function runAsync() {
         Office.context.mailbox.displayNewMessageFormAsync(
