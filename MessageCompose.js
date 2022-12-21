@@ -19,10 +19,10 @@
 
 
 
-//function getPhishingItem(item) {
-//        phishItemId = item.itemId
-//        phishSubject = item.subject
-//    }
+function getPhishingItem(item) {
+        phishItemId = item.itemId
+        phishSubject = item.subject
+    }
 
 //    function composeMail() {
 //        Office.context.mailbox.displayNewMessageForm ({
