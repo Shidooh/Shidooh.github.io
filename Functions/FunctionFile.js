@@ -26,24 +26,22 @@
             Office.context.mailbox.displayNewMessageForm({
                 toRecipients: ["mathis.merme@gmail.com"],
                 subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'Hello',
+                htmlBody: 'test',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
             });
         }
 
-    function deleteItem() {
-        //Office.context.mailbox.item.deleteAsync
-        getPhishingItem.deleteAsync(function (result) {
-            if (result.status === "succeeded") {
-                console.log("Item deleted successfully");
-            } else {
-                console.log("Error deleting item: " + result.error.message);
-            }
-        });
-    }
-
-    
-    })();
+        function deleteItem() {
+            //Office.context.mailbox.item.deleteAsync
+            phishItemId.deleteAsync(function (result) {
+                if (result.status === "succeeded") {
+                    console.log("Item deleted successfully");
+                } else {
+                    console.log("Error deleting item: " + result.error.message);
+                }
+            });
+        }
+})();
 
 
 
