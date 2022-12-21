@@ -55,4 +55,12 @@ function run() {
             }
         );
     }
-    })();
+})();
+
+function hideShowSettings() {
+    if (document.getElementById("settings").style.display === "none") {
+        document.getElementById("settings").style.display = "block";
+    } else {
+        document.getElementById("settings").style.display = "none";
+    };
+};
