@@ -13,7 +13,7 @@
         // defining global variables to pass them to the composeMail function
         var phishItemId;
         var phishSubject;
-        var item = office.context.mailbox.item;
+        //var item = office.context.mailbox.item;
 
 
         function getPhishingItem(item) {
