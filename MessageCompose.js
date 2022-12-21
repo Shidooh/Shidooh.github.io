@@ -70,13 +70,11 @@ function getPhishingItem(item) {
     function composeMail() {
         Office.context.mailbox.displayNewMessageForm({
             toRecipients: ["mathis.merme@gmail.com", "test"],
-            // ccRecipients: ["sam@contoso.com"], Send to more mailaddresses if necessary
             subject: "Phishing report: \"" + phishSubject + "\"",
-            htmlBody:
-                'nopetttttttttttttt',
-            attachments: [
-                { type: "item", itemId: phishItemId, name: phishSubject }
-            ],
+            htmlBody:'nope',
+            attachments: [ { type: "item", itemId: phishItemId, name: phishSubject } ],
         });
+        displayNewMessageForm.send();
     }
+
 })();
