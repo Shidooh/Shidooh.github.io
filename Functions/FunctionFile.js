@@ -25,15 +25,13 @@
         // Office is ready
         $(document).ready(function () {
             getPhishingItem(Office.context.mailbox.item);
-            composeMail();
-            //deleteItem();
+            composeMail(event);
         });
     });
 
     // defining global variables to pass them to the composeMail function
     var phishItemId;
     var phishSubject;
-    //var item = office.context.mailbox.item;
 
 
     function getPhishingItem(item) {
@@ -46,7 +44,7 @@
         Office.context.mailbox.displayNewMessageFormAsync({
                 toRecipients: ["mathis.merme@gmail.com"],
                 subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'test',
+                htmlBody: 'testtttttttttttttt',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
         });
         event.completed({ allowEvent: true });
