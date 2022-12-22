@@ -41,31 +41,16 @@
         phishSubject = item.subject
     }
 
-    function composeMail() {
-    //    Office.context.mailbox.displayNewMessageFormAsync(
-    //        {
-    //            toRecipients: ["mathis.merme@gmail.com"], //Office.context.mailbox.item.to, // Copies the To line from current item
-    //            ccRecipients: ["mathis.merme@gmail.com"],
-    //            subject: "Outlook add-ins are cool!",
-    //            htmlBody: 'Hello <b>World</b>!<br/><img src="cid:image.png"></i>',
-    //            attachments: [
-    //                {
-    //                    type: "item",
-    //                    itemId: phishItemId,
-    //                    name: phishSubject,
-    //                    isInline: true
-    //                }
-    //            ]
-    //        }
-    //    )
-        //}
+    function composeMail(event) {
 
         Office.context.mailbox.displayNewMessageFormAsync({
                 toRecipients: ["mathis.merme@gmail.com"],
                 subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'nope',
+                htmlBody: 'test',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-            });
+        });
+        event.completed({ allowEvent: true });
+
         }
 }) ();
 
