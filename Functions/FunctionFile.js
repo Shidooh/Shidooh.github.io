@@ -20,14 +20,21 @@
             {
                 toRecipients: ["mathis.merme@gmail.com"],
                 subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'testtttttttttttttt',
+                htmlBody: 'nope',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-        },
+            },
             function (asyncResult) {
-                Office.context.mailbox.item.deleteAsync();
+                var newMessage = asyncResult.value;
+                // Ajout de l'événement "send" sur le nouveau message
+                newMessage.addHandlerAsync(Office.EventType.ItemSend, sendMessage);
             }
-
         );
     }
 
-}) ();
+    // Fonction de rappel qui sera appelée lorsque le nouveau message est envoyé
+    function sendMessage(event) {
+        // Suppression de l'élément courant (le message phish)
+        Office.context.mailbox.item.deleteAsync();
+    }
+
+})();
