@@ -59,11 +59,6 @@
             }
         )
     }
-
-    function (asyncResult) {
-        console.log(JSON.stringify(asyncResult));
-    }
-
 }) ();
 
 //Office.context.mailbox.displayNewMessageFormAsync({
