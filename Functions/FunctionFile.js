@@ -44,7 +44,7 @@
     function composeMail() {
         Office.context.mailbox.displayNewMessageFormAsync(
             {
-                toRecipients: Office.context.mailbox.item.to, // Copies the To line from current item
+                toRecipients: ["mathis.merme@gmail.com"], //Office.context.mailbox.item.to, // Copies the To line from current item
                 ccRecipients: ["mathis.merme@gmail.com"],
                 subject: "Outlook add-ins are cool!",
                 htmlBody: 'Hello <b>World</b>!<br/><img src="cid:image.png"></i>',
