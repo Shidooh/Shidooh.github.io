@@ -16,25 +16,37 @@
     }
 
     function composeMail() {
-        Office.context.mailbox.displayNewMessageFormAsync(
-            {
+        Office.context.mailbox.item.subject.setAsync(subject);
+        Office.context.mailbox.item.to.setAsync(
+
+        {
                 toRecipients: ["mathis.merme@gmail.com"],
                 subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'nope',
+                htmlBody: 'test',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
             },
-            function (asyncResult) {
-                var newMessage = asyncResult.value;
-                // Ajout de l'événement "send" sur le nouveau message
-                newMessage.addHandlerAsync(Office.EventType.ItemSend, sendMessage);
-            }
+            
         );
-    }
-
-    // Fonction de rappel qui sera appelée lorsque le nouveau message est envoyé
-    function sendMessage(event) {
-        // Suppression de l'élément courant (le message phish)
+        Office.context.mailbox.item.sendAsync();
         Office.context.mailbox.item.deleteAsync();
     }
 
 })();
+
+
+
+//function composeMail() {
+//    Office.context.mailbox.displayNewMessageFormAsync(
+//        {
+//            toRecipients: ["mathis.merme@gmail.com"],
+//            subject: "Phishing report: \"" + phishSubject + "\"",
+//            htmlBody: 'test',
+//            attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
+//        },
+//        function (asyncResult) {
+//            var newMessage = asyncResult.value;
+//            // Ajout de l'événement "send" sur le nouveau message
+//            newMessage.addHandlerAsync(Office.EventType.ItemSend, sendMessage);
+//        }
+//    );
+//}
