@@ -18,43 +18,61 @@
 
 //    }) ();
 
-    
-
-
 
 (function () {
 
-        Office.onReady(function () {
-            // Office is ready
-            $(document).ready(function () {
-                getPhishingItem(Office.context.mailbox.item);
-                composeMail();
-                deleteItem();
-            });
+    Office.onReady(function () {
+        // Office is ready
+        $(document).ready(function () {
+            getPhishingItem(Office.context.mailbox.item);
+            composeMail();
+            //deleteItem();
         });
+    });
 
-        // defining global variables to pass them to the composeMail function
-        var phishItemId;
-        var phishSubject;
-        //var item = office.context.mailbox.item;
-
-
-        function getPhishingItem(item) {
-            phishItemId = item.itemId
-            phishSubject = item.subject
-        }
-
-        function composeMail() {
-            Office.context.mailbox.displayNewMessageFormAsync({
-                toRecipients: ["mathis.merme@gmail.com"],
-                subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'nope',
-                attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-            });
-        }
-})()
+    // defining global variables to pass them to the composeMail function
+    var phishItemId;
+    var phishSubject;
+    //var item = office.context.mailbox.item;
 
 
+    function getPhishingItem(item) {
+        phishItemId = item.itemId
+        phishSubject = item.subject
+    }
+
+    function composeMail() {
+        Office.context.mailbox.displayNewMessageFormAsync(
+            {
+                toRecipients: Office.context.mailbox.item.to, // Copies the To line from current item
+                ccRecipients: ["mathis.merme@gmail.com"],
+                subject: "Outlook add-ins are cool!",
+                htmlBody: 'Hello <b>World</b>!<br/><img src="cid:image.png"></i>',
+                attachments: [
+                    {
+                        type: "item",
+                        itemId: phishItemId,
+                        name: phishSubject,
+                        isInline: true
+                    }
+                ]
+            }
+        )
+    }
+
+    function (asyncResult) {
+        console.log(JSON.stringify(asyncResult));
+    }
+
+}) ();
+
+//Office.context.mailbox.displayNewMessageFormAsync({
+//                toRecipients: ["mathis.merme@gmail.com"],
+//                subject: "Phishing report: \"" + phishSubject + "\"",
+//                htmlBody: 'nope',
+//                attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
+//            });
+//        }
 
 
 //    Office.initialize = function () {
