@@ -42,32 +42,34 @@
     }
 
     function composeMail() {
-        Office.context.mailbox.displayNewMessageFormAsync(
-            {
-                toRecipients: ["mathis.merme@gmail.com"], //Office.context.mailbox.item.to, // Copies the To line from current item
-                ccRecipients: ["mathis.merme@gmail.com"],
-                subject: "Outlook add-ins are cool!",
-                htmlBody: 'Hello <b>World</b>!<br/><img src="cid:image.png"></i>',
-                attachments: [
-                    {
-                        type: "item",
-                        itemId: phishItemId,
-                        name: phishSubject,
-                        isInline: true
-                    }
-                ]
-            }
-        )
-    }
+    //    Office.context.mailbox.displayNewMessageFormAsync(
+    //        {
+    //            toRecipients: ["mathis.merme@gmail.com"], //Office.context.mailbox.item.to, // Copies the To line from current item
+    //            ccRecipients: ["mathis.merme@gmail.com"],
+    //            subject: "Outlook add-ins are cool!",
+    //            htmlBody: 'Hello <b>World</b>!<br/><img src="cid:image.png"></i>',
+    //            attachments: [
+    //                {
+    //                    type: "item",
+    //                    itemId: phishItemId,
+    //                    name: phishSubject,
+    //                    isInline: true
+    //                }
+    //            ]
+    //        }
+    //    )
+        //}
+
+        Office.context.mailbox.displayNewMessageFormAsync({
+                toRecipients: ["mathis.merme@gmail.com"],
+                subject: "Phishing report: \"" + phishSubject + "\"",
+                htmlBody: 'nope',
+                attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
+            });
+        }
 }) ();
 
-//Office.context.mailbox.displayNewMessageFormAsync({
-//                toRecipients: ["mathis.merme@gmail.com"],
-//                subject: "Phishing report: \"" + phishSubject + "\"",
-//                htmlBody: 'nope',
-//                attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-//            });
-//        }
+
 
 
 //    Office.initialize = function () {
