@@ -19,9 +19,9 @@
     function composemail() {
         Office.context.mailbox.displayNewMessageForm({
             toRecipients: ["mathis.merme@gmail.com"],
-            ccRecipients: ["test"],
-            subject: "phishing reportttttttttttt: \"" + phishSubject + "\"",
-            htmlBody: 'testttttttttttttttttttttttt',
+            ccRecipients: ["mathis.merme@groupe.schmidt"],
+            subject: "phishing report: \"" + phishSubject + "\"",
+            htmlBody: 'test',
             attachments: [
                 { type: "item", itemId: phishItemId, name: phishSubject }
             ],
