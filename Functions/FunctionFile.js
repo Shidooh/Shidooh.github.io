@@ -24,10 +24,11 @@
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
                 removeButtons: ['Send']
             },
-            function (asyncResult) {
-                var newMessage = asyncResult.value;
-                newMessage.addHandlerAsync(Office.EventType.ItemSend, sendMessage);
-                newMessage.sendAsync();
+            function (asyncresult) {
+                var newmessage = asyncresult.value;
+                newmessage.sendasync();
+                // suppression de l'élément courant (le message phish) une fois que le nouveau message a été envoyé
+                office.context.mailbox.item.deleteasync();
             }
         );
     }
