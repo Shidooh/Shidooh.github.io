@@ -3,7 +3,7 @@
     Office.onReady(function () {
         $(document).ready(function () {
             getPhishingItem(Office.context.mailbox.item);
-            composemail();
+            composeMail();
         });
     });
 
@@ -15,23 +15,23 @@
         phishSubject = item.subject
     }
 
-
-    function composemail() {
+    function composeMail() {
         Office.context.mailbox.displayNewMessageFormAsync(
             {
                 toRecipients: ["mathis.merme@gmail.com"],
                 subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'test',
+                htmlBody: 'testttttttttttttttttttttttttttttt',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
             },
             function (asyncResult) {
                 var newMessage = asyncResult.value;
                 newMessage.addHandlerAsync(Office.EventType.ItemSend, sendMessage);
+                newMessage.sendAsync();
             }
         );
     }
 
-    function sendMessage(event) {
+    function sendMessage(_event) {
         // Suppression de l'élément courant (le message phish)
         Office.context.mailbox.item.deleteAsync();
     }
