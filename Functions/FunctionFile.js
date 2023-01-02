@@ -3,7 +3,7 @@
     Office.onReady(function () {
         $(document).ready(function () {
             getPhishingItem(Office.context.mailbox.item);
-            composeMail();
+            composemail();
         });
     });
 
