@@ -41,9 +41,13 @@
         </Form>
     </FormSettings>
 
-    <Permissions>ReadWriteItem</Permissions>
+	<!--<Permissions>ReadWriteItem</Permissions>-->
+	<Permissions>
+		<Permission Name="Mailbox" />
+	</Permissions>
 
-    <!--  Definition du ruban d'accueil  -->
+
+	<!--  Definition du ruban d'accueil  -->
     <Rule xsi:type="RuleCollection" Mode="Or">
         <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read" />
     </Rule>
@@ -93,6 +97,9 @@
                             </Group>
                         </OfficeTab>
                     </ExtensionPoint>
+				
+			
+		
 					</DesktopFormFactor>
             </Host>
         </Hosts>
