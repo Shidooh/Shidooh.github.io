@@ -23,11 +23,6 @@
             htmlbody: 'test',
             attachments: [{ type: "item", itemid: phishitemid, name: phishsubject }],
         },
-        function (asyncresult) {
-            var newmessage = asyncresult.value;
-            // ajout de l'événement "send" sur le nouveau message
-            newmessage.addhandlerasync(office.eventtype.itemsend, sendmessage);
-        }
     );
 }
 
