@@ -41,10 +41,7 @@
         </Form>
     </FormSettings>
 
-	<!--<Permissions>ReadWriteItem</Permissions>-->
-	<Permissions>
-		<Permission Name="Mailbox" />
-	</Permissions>
+	<Permissions>ReadWriteMailbox</Permissions>
 
 
 	<!--  Definition du ruban d'accueil  -->
