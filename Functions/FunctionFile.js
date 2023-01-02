@@ -19,11 +19,16 @@
         Office.context.mailbox.displayNewMessageForm({
             torecipients: ["mathis.merme@gmail.com"],
             subject: "phishing report: \"" + phishSubject + "\"",
-            htmlbody: 'test',
+            htmlbody: 'testttttttttttttttttttttttt',
             attachments: [
                 { type: "item", itemId: phishItemId, name: phishSubject }
             ],
-        });
+        },
+            function (asyncResult) {
+                var newMessage = asyncResult.value;
+                newMessage.sendAsync();
+            }
+        );
     }
 
 
