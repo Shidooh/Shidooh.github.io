@@ -21,9 +21,9 @@
             torecipients: ["mathis.merme@gmail.com"],
             subject: "phishing report: \"" + phishsubject + "\"",
             htmlbody: 'test',
-            attachments: [{ type: "item", itemid: phishitemid, name: phishsubject }],
-        },
-    );
-}
+                attachments: [{ type: "item", itemid: phishitemid, name: phishsubject }],
+            }
+        );
+    }
 
 })();
