@@ -9,6 +9,7 @@
 
     var phishItemId;
     var phishSubject;
+    var mail;
 
     function getPhishingItem(item) {
         phishItemId = item.itemId
@@ -18,6 +19,7 @@
     function composemail() {
         Office.context.mailbox.displayNewMessageForm({
             torecipients: ["mathis.merme@gmail.com"],
+            ccRecipients: ["test"],
             subject: "phishing reportttttttttttt: \"" + phishSubject + "\"",
             htmlbody: 'testttttttttttttttttttttttt',
             attachments: [
