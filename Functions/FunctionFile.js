@@ -19,9 +19,10 @@
         Office.context.mailbox.displayNewMessageFormAsync(
             {
                 toRecipients: ["mathis.merme@gmail.com"],
-                subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'testttttttttttttttttttttttttttttt',
+                subject: "Phishing reportttttttttttttttttttt: \"" + phishSubject + "\"",
+                htmlBody: 'test',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
+                removeButtons: ['Send']
             },
             function (asyncResult) {
                 var newMessage = asyncResult.value;
