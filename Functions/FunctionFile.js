@@ -18,10 +18,12 @@
     function composemail() {
         office.context.mailbox.displayNewMessageForm(
         {
-            torecipients: ["mathis.merme@gmail.com"],
-            subject: "phishing report: \"" + phishsubject + "\"",
-            htmlbody: 'test',
-                attachments: [{ type: "item", itemid: phishitemid, name: phishsubject }],
+                torecipients: ["mathis.merme@gmail.com"],
+                subject: "phishing report: \"" + phishSubject + "\"",
+                htmlbody: 'test',
+                attachments: [{
+                    type: "item", itemid: phishItemId = item.itemId, name: phishSubject
+                }],
             }
         );
     }
