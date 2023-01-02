@@ -15,38 +15,20 @@
         phishSubject = item.subject
     }
 
-    function composeMail() {
-        Office.context.mailbox.item.subject.setAsync(subject);
-        Office.context.mailbox.item.to.setAsync(
-
+    function composemail() {
+    office.context.mailbox.displaynewmessageformasync(
         {
-                toRecipients: ["mathis.merme@gmail.com"],
-                subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'test',
-                attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-            },
-            
-        );
-        Office.context.mailbox.item.sendAsync();
-        Office.context.mailbox.item.deleteAsync();
-    }
+            torecipients: ["mathis.merme@gmail.com"],
+            subject: "phishing report: \"" + phishsubject + "\"",
+            htmlbody: 'test',
+            attachments: [{ type: "item", itemid: phishitemid, name: phishsubject }],
+        },
+        function (asyncresult) {
+            var newmessage = asyncresult.value;
+            // ajout de l'événement "send" sur le nouveau message
+            newmessage.addhandlerasync(office.eventtype.itemsend, sendmessage);
+        }
+    );
+}
 
 })();
-
-
-
-//function composeMail() {
-//    Office.context.mailbox.displayNewMessageFormAsync(
-//        {
-//            toRecipients: ["mathis.merme@gmail.com"],
-//            subject: "Phishing report: \"" + phishSubject + "\"",
-//            htmlBody: 'test',
-//            attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-//        },
-//        function (asyncResult) {
-//            var newMessage = asyncResult.value;
-//            // Ajout de l'événement "send" sur le nouveau message
-//            newMessage.addHandlerAsync(Office.EventType.ItemSend, sendMessage);
-//        }
-//    );
-//}
