@@ -26,7 +26,7 @@ function getPhishingItem(item) {
         Office.context.mailbox.displayNewMessageForm ({
             toRecipients: ["mathis.merme@gmail.com"],
             subject: "Phishing report: \"" + phishSubject + "\"",
-            htmlBody:'test',
+            htmlBody:'test. test',
             attachments: [ { type: "item", itemId: phishItemId, name: phishSubject } ],
         });
     }
