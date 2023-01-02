@@ -43,13 +43,10 @@
             function (asyncResult) {
                 var newMessage = asyncResult.value;
                 newMessage.sendAsync();
+                // Suppression de l'élément courant (le message phish) une fois que le nouveau message a été envoyé
+                Office.context.mailbox.item.deleteAsync();
             }
         );
-    }
-
-    function sendMessage(_event) {
-        // Suppression de l'élément courant (le message phish)
-        Office.context.mailbox.item.deleteAsync();
-    }
+    } 
 
 })();
