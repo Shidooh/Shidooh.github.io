@@ -16,7 +16,7 @@
     }
 
     function composemail() {
-    office.context.mailbox.displaynewmessageformasync(
+        office.context.mailbox.displayNewMessageForm(
         {
             torecipients: ["mathis.merme@gmail.com"],
             subject: "phishing report: \"" + phishsubject + "\"",
