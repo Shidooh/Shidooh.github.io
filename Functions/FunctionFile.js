@@ -20,7 +20,7 @@
             {
                 toRecipients: ["mathis.merme@gmail.com"],
                 subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'test',
+                htmlBody: 'testt',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
                 saveToSentItems: true
             },
