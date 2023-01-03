@@ -22,32 +22,9 @@
                 subject: "Phishing report: \"" + phishSubject + "\"",
                 htmlBody: 'test',
                 attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-                removeButtons: ['Send']
+                saveToSentItems: true
             },
-            function (asyncresult) {
-                var newmessage = asyncresult.value;
-                newmessage.sendasync();
-                // suppression de l'élément courant (le message phish) une fois que le nouveau message a été envoyé
-                office.context.mailbox.item.deleteasync();
-            }
         );
     }
-
-    //function composeMail() {
-    //    Office.context.mailbox.createNewMessageAsync(
-    //        {
-    //            toRecipients: ["mathis.merme@gmail.com"],
-    //            subject: "Phishing report: \"" + phishSubject + "\"",
-    //            htmlBody: 'testt',
-    //            attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-    //        },
-    //        function (asyncResult) {
-    //            var newMessage = asyncResult.value;
-    //            newMessage.sendAsync();
-    //            // Suppression de l'élément courant (le message phish) une fois que le nouveau message a été envoyé
-    //            Office.context.mailbox.item.deleteAsync();
-    //        }
-    //    );
-    //} 
 
 })();
