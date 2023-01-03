@@ -32,14 +32,19 @@
         var email = {
             toRecipients: ["mathis.merme@gmail.com"],
             subject: "Phishing report: \"" + phishSubject + "\"",
-            htmlBody: 'testtttttttttttt',
+            htmlBody: 'test',
             attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }]
         };
 
         Office.context.mailbox.item.sendAsync(email, {
             saveToSentItems: true
+        }, function (result) {
+            if (result.status == "failed") {
+                console.error("L'envoi du message a échoué : " + result.error.message);
+            }
         });
     }
+
 
 
 
