@@ -15,16 +15,34 @@
         phishSubject = item.subject
     }
 
+    //function composeMail() {
+    //    Office.context.mailbox.displayNewMessageFormAsync(
+    //        {
+    //            toRecipients: ["mathis.merme@gmail.com"],
+    //            subject: "Phishing report: \"" + phishSubject + "\"",
+    //            htmlBody: 'testt',
+    //            attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
+    //            saveToSentItems: true
+    //        },
+    //    );
+    //}
+
+
     function composeMail() {
-        Office.context.mailbox.displayNewMessageFormAsync(
-            {
-                toRecipients: ["mathis.merme@gmail.com"],
-                subject: "Phishing report: \"" + phishSubject + "\"",
-                htmlBody: 'testt',
-                attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }],
-                saveToSentItems: true
-            },
-        );
+        var email = {
+            toRecipients: ["mathis.merme@gmail.com"],
+            subject: "Phishing report: \"" + phishSubject + "\"",
+            htmlBody: 'testtttttttttttt',
+            attachments: [{ type: "item", itemId: phishItemId, name: phishSubject }]
+        };
+
+        Office.context.mailbox.item.sendAsync(email, {
+            saveToSentItems: true
+        });
     }
+
+
+
+
 
 })();
